@@ -3,6 +3,9 @@
     "outDir": "./dist/",
     "rootDir": ".",
     "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
     "noImplicitAny": true,
     "module": "es6",
     "target": "ES2016",
