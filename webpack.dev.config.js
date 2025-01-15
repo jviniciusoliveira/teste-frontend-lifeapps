@@ -27,6 +27,11 @@ module.exports = merge(common, {
           },
         ],
       },
+      {
+        test: /\.svg$/,
+        issuer: /\.[jt]sx?$/,
+        use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+      },
     ],
   },
   devtool: 'inline-source-map',
