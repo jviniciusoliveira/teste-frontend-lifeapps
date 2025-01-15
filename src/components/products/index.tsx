@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+import { Pagination } from '@/components/pagination'
 
 import styles from './styles.module.css'
 
@@ -15,16 +17,22 @@ interface Product {
 
 export function Products() {
   const [products, setProducts] = useState<Product[]>([])
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const totalPages = useRef(0)
 
   useEffect(() => {
     async function loadProducts() {
-      const response = await fetch('http://localhost:3002/products?_page=1')
-      const { data } = await response.json()
+      const response = await fetch(
+        `http://localhost:3002/products?_page=${currentPage}`
+      )
+      const { data, pages } = await response.json()
+
+      totalPages.current = pages
       setProducts(data)
     }
 
     loadProducts()
-  }, [])
+  }, [currentPage])
 
   return (
     <>
@@ -54,6 +62,12 @@ export function Products() {
           </div>
         ))}
       </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages.current}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </>
   )
 }
