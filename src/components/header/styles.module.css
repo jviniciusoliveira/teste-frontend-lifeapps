@@ -1,0 +1,63 @@
+.container {
+  width: 100%;
+  max-width: 1400px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 16px;
+  border-bottom: 1px solid #EDEDED;
+  background-color: #FFF;
+}
+
+.container svg {
+  width: 28px;
+  height: 28px;
+  color: #008ECC;
+}
+
+.brandContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.container svg.brand {
+  width: 48px;
+  height: 48px;
+  color: #008ECC;
+}
+
+.title {
+  color: #008ECC;
+}
+
+.searchInput {
+  width: 500px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background-color: #F3F9FB;
+  border: 0;
+  border-radius: 10px;
+  padding: 0px 16px;
+}
+
+.searchInput input {
+  flex: 1;
+  border: 0;
+  height: 100%;
+  background-color: transparent;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.actions button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
