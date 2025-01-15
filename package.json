@@ -7,17 +7,9 @@
     "format": "prettier src --write",
     "lint": "eslint src --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jviniciusoliveira/teste-frontend-lifeapps.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jviniciusoliveira/teste-frontend-lifeapps/issues"
-  },
-  "homepage": "https://github.com/jviniciusoliveira/teste-frontend-lifeapps#readme",
   "description": "",
   "dependencies": {
     "react": "^18.3.1",
