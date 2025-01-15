@@ -1,9 +1,7 @@
 import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router'
 
-import { Header } from '@/components/header'
-import { Categories } from '@/components/categories'
-import { Products } from '@/components/products'
+import { Home } from '@/pages/home'
 import { store } from '@/store/setup'
 
 export function App() {
@@ -11,16 +9,7 @@ export function App() {
     <StoreProvider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <Categories />
-                <Products />
-              </>
-            }
-          />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </StoreProvider>
