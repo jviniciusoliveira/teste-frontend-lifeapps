@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Pagination } from '@/components/pagination'
 
 import styles from './styles.module.css'
+import { httpGet } from '@/services'
 
 interface Product {
   id: string
@@ -22,11 +23,12 @@ export function Products() {
 
   useEffect(() => {
     async function loadProducts() {
-      const response = await fetch(
-        `http://localhost:3002/products?_page=${currentPage}`
-      )
-      const { data, pages } = await response.json()
-
+      const { data, pages } = await httpGet({
+        endpoint: 'products',
+        params: {
+          _page: currentPage,
+        },
+      })
       totalPages.current = pages
       setProducts(data)
     }
