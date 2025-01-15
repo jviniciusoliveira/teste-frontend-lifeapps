@@ -18,6 +18,11 @@ type ProductCart = Product & {
   amount: number
 }
 
+type ChangeQuantity = {
+  productId: string
+  quantity: number
+}
+
 type CartState = {
   products: ProductCart[]
 }
@@ -31,27 +36,31 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, { payload }: PayloadAction<Product>) => {
-      const productIndex = state.products.findIndex(
+      const productInCart = state.products.find(
         (product) => product.id === payload.id
       )
 
-      if (productIndex < 0) {
+      if (!productInCart) {
         state.products = [
           ...state.products,
           { ...payload, quantity: 1, amount: payload.price },
         ]
-      } else {
-        const currentProduct = state.products[productIndex]
-        const updatedProduct = {
-          ...currentProduct,
-          quantity: currentProduct.quantity + 1,
-        }
-        state.products[productIndex] = updatedProduct
       }
     },
-    remove: (state, { payload }: PayloadAction<Product>) => {
+    delete: (state, { payload }: PayloadAction<{ productId: string }>) => {
       state.products = state.products.filter(
-        (product) => product.id !== payload.id
+        (product) => product.id !== payload.productId
+      )
+    },
+    changeQuantity: (state, { payload }: PayloadAction<ChangeQuantity>) => {
+      state.products = state.products.map((product) =>
+        product.id !== payload.productId
+          ? product
+          : {
+              ...product,
+              quantity: payload.quantity,
+              amount: payload.quantity * product.price,
+            }
       )
     },
     clear: (state) => {

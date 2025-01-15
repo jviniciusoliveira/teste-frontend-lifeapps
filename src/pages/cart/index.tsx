@@ -1,10 +1,19 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './styles.module.css'
 
-import { selectCart } from '@/store/cart'
+import { actionCart, selectCart } from '@/store/cart'
 
 export function Cart() {
+  const dispatch = useDispatch()
   const products = useSelector(selectCart)
+
+  function handleChangeQuantity(productId: string, quantity: number) {
+    dispatch(actionCart.changeQuantity({ productId, quantity }))
+  }
+
+  function handleDeleteProduct(productId: string) {
+    dispatch(actionCart.delete({ productId }))
+  }
 
   if (!products.length) return null
 
@@ -16,6 +25,7 @@ export function Cart() {
           {products.map((product) => (
             <li key={product.id} className={styles.cartItemContainer}>
               <img className={styles.cartItemImage} src={product.image} />
+
               <div className={styles.cartItemInfo}>
                 <strong className={styles.cartItemInfoName}>
                   {product.name}
@@ -26,13 +36,32 @@ export function Cart() {
               </div>
 
               <div className={styles.cartItemQuantityContainer}>
-                <button className={styles.cartItemQuantityButton}>-</button>
-                <span className={styles.cartItemQuantity}>
-                  {product.quantity}
-                </span>
-                <button className={styles.cartItemQuantityButton}>+</button>
+                <select
+                  name="productQuantity"
+                  onChange={(event) =>
+                    handleChangeQuantity(product.id, Number(event.target.value))
+                  }
+                >
+                  {Array.from({ length: 10 }, (_, i) => i + 1).map(
+                    (quantity) => (
+                      <option
+                        value={quantity}
+                        selected={quantity === product.quantity}
+                      >
+                        {quantity}
+                      </option>
+                    )
+                  )}
+                </select>
+                <button
+                  className={styles.cartItemActionDelete}
+                  onClick={() => handleDeleteProduct(product.id)}
+                >
+                  Excluir
+                </button>
               </div>
-              <div className={styles.cartItemPrice}>R$ {product.price},00</div>
+
+              <div className={styles.cartItemPrice}>R$ {product.amount},00</div>
             </li>
           ))}
         </ul>
