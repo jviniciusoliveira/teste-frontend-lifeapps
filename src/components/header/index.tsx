@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 import styles from './styles.module.css'
 
 import CartIcon from '@/assets/icons/cart.svg'
@@ -18,9 +20,9 @@ export function Header() {
         <SearchIcon />
       </div>
       <div className={styles.actions}>
-        <button>
+        <Link to="/cart">
           <CartIcon />
-        </button>
+        </Link>
         <button>
           <FavoriteIcon />
         </button>
