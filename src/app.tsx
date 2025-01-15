@@ -1,4 +1,5 @@
 import { Provider as StoreProvider } from 'react-redux'
+import { BrowserRouter, Routes, Route } from 'react-router'
 
 import { Header } from '@/components/header'
 import { Categories } from '@/components/categories'
@@ -8,9 +9,20 @@ import { store } from '@/store/setup'
 export function App() {
   return (
     <StoreProvider store={store}>
-      <Header />
-      <Categories />
-      <Products />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Categories />
+                <Products />
+              </>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </StoreProvider>
   )
 }
