@@ -11,10 +11,10 @@ import UserIcon from '@/assets/icons/user.svg'
 export function Header() {
   return (
     <header className={styles.container}>
-      <div className={styles.brandContainer}>
+      <Link to="/" className={styles.brandContainer} title="Home">
         <BrandIcon className={styles.brand} />
         <h1 className={styles.title}>E-Commerce</h1>
-      </div>
+      </Link>
       <div className={styles.searchInput}>
         <input placeholder="Buscar produtos" />
         <SearchIcon />
