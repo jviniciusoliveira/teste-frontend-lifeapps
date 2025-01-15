@@ -10,6 +10,23 @@ module.exports = merge(common, {
         loader: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                namedExport: false,
+                localIdentName: '[local]__[hash:base64:5]',
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   devtool: 'inline-source-map',
