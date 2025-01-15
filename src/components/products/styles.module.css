@@ -9,7 +9,7 @@
   margin-top: 40px;
 }
 
-.container > div {
+.container > a {
   width: 260px;
   height: 400px;
   border: 0;
@@ -17,6 +17,11 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   text-decoration: none;
   color: unset;
+}
+
+.container > a:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  opacity: .9;
 }
 
 .productImageContainer {

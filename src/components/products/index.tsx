@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router'
+import styles from './styles.module.css'
 
 import { Pagination } from '@/components/pagination'
-
-import styles from './styles.module.css'
 import { httpGet } from '@/services'
 
 interface Product {
@@ -40,7 +40,7 @@ export function Products() {
     <>
       <div className={styles.container}>
         {products.map((product) => (
-          <div>
+          <Link to={`/product/${product.id}`}>
             <div>
               <span className={styles.productDiscount}>
                 {product.discount_percentage}
@@ -61,7 +61,7 @@ export function Products() {
                 </strong>
               )}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
