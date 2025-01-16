@@ -1,40 +1,11 @@
-import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import styles from './styles.module.css'
 
 import { Pagination } from '@/components/pagination'
-import { httpGet } from '@/services'
-
-interface Product {
-  id: string
-  name: string
-  category: string
-  price: number
-  discount_percentage: number
-  promotional_price: number
-  image: string
-  description: string
-}
+import { useProducts } from '@/hooks/useProducts'
 
 export function Products() {
-  const [products, setProducts] = useState<Product[]>([])
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const totalPages = useRef(0)
-
-  useEffect(() => {
-    async function loadProducts() {
-      const { data, pages } = await httpGet({
-        endpoint: 'products',
-        params: {
-          _page: currentPage,
-        },
-      })
-      totalPages.current = pages
-      setProducts(data)
-    }
-
-    loadProducts()
-  }, [currentPage])
+  const { products, pages, getByPage } = useProducts()
 
   return (
     <>
@@ -65,11 +36,13 @@ export function Products() {
         ))}
       </div>
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages.current}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
+      {pages?.total > 1 && (
+        <Pagination
+          currentPage={pages.current}
+          totalPages={pages.total}
+          onPageChange={(page) => getByPage(page)}
+        />
+      )}
     </>
   )
 }
