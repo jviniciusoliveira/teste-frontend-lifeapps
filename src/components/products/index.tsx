@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 import { Pagination } from '@/components/pagination'
 import { useProductsList } from '@/hooks/useProductsList'
 import { useProductsSearch } from '@/hooks/useProductsSearch'
-import { Card } from '@/components/card'
+import { Card } from '@/components/ui/card'
 
 export function Products() {
   const { searchByPage } = useProductsSearch()

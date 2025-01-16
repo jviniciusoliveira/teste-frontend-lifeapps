@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 
-import { Button } from '@/components/button'
+import { Button } from '@/components/ui/button'
 
 type PaginationProps = {
   currentPage: number

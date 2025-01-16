@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 import { actionCart } from '@/store/product-cart'
 import type { Product } from '@/store/product-cart'
 import { useGetProductByIdQuery } from '@/services/products'
-import { Button } from '@/components/button'
+import { Button } from '@/components/ui/button'
 
 export function Product() {
   const { id } = useParams()

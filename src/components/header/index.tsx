@@ -8,7 +8,7 @@ import FavoriteIcon from '@/assets/icons/favorite.svg'
 import SearchIcon from '@/assets/icons/search.svg'
 import UserIcon from '@/assets/icons/user.svg'
 import { useProductsSearch } from '@/hooks/useProductsSearch'
-import { Button } from '@/components/button'
+import { Button } from '@/components/ui/button'
 
 export function Header() {
   const { searchByName } = useProductsSearch()
