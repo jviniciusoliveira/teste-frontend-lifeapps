@@ -1,7 +1,10 @@
 import { useCallback } from 'react'
-import { createSearchParams, useNavigate } from 'react-router'
+import { createSearchParams, useNavigate, useSearchParams } from 'react-router'
+
+type ParamNames = '_page' | 'name' | 'category'
 
 export function useProductsSearch() {
+  const [searchParams] = useSearchParams()
   const navigate = useNavigate()
 
   const searchByCategory = useCallback((category: string) => {
@@ -31,9 +34,17 @@ export function useProductsSearch() {
     })
   }, [])
 
+  const getSearchParam = useCallback(
+    (paramName: ParamNames) => {
+      return searchParams.get(paramName)
+    },
+    [searchParams]
+  )
+
   return {
     searchByPage,
     searchByName,
     searchByCategory,
+    getSearchParam,
   }
 }
