@@ -2,8 +2,8 @@ import { useNavigate, useParams } from 'react-router'
 import { useDispatch } from 'react-redux'
 import styles from './styles.module.css'
 
-import { actionCart } from '@/store/cart'
-import { type Product } from '@/store/cart'
+import { actionCart } from '@/store/product-cart'
+import type { Product } from '@/store/product-cart'
 import { useGetProductByIdQuery } from '@/services/products'
 
 export function Product() {

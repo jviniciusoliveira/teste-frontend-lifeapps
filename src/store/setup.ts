@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import cartReducer from './cart'
+import cartReducer from './product-cart'
 import productSearchReducer from './product-search'
 import { productApi } from '@/services/products'
 
