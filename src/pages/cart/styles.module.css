@@ -70,15 +70,6 @@
   justify-content: center;
 }
 
-.cartItemActionDelete {
-  background: none;
-  border: 0;
-  cursor: pointer;
-  text-decoration: underline;
-  font-size: 13px;
-  font-weight: 400;
-}
-
 .cartSummary {
   height: 150px;
   background-color: #EDEDED;
@@ -94,27 +85,10 @@
 }
 
 .cartSummaryActions {
+  min-width: 235px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
-}
-
-.cartSummaryActions button {
-  width: 235px;
-  border-radius: 4px;
-  border: 0;
-  background-color: #58c22e;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 36px;
-  text-align: center;
-  transition: background-color .4s;
-  cursor: pointer;
-}
-
-.cartSummaryActions button:hover {
-  background-color: #48a524;
 }

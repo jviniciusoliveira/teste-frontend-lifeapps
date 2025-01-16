@@ -1,5 +1,6 @@
 import styles from './styles.module.css'
 
+import { Button } from '@/components/button'
 import { useProductsSearch } from '@/hooks/useProductsSearch'
 
 export function Categories() {
@@ -13,30 +14,30 @@ export function Categories() {
 
   return (
     <nav className={styles.container}>
-      <button
+      <Button
         onClick={() => searchByPage(1)}
         className={`${styles.categoryOption} ${styles.categoryOptionActive}`}
       >
         Todos os produtos
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={handleGetByCategory('Camisetas')}
         className={styles.categoryOption}
       >
         Camisetas
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={handleGetByCategory('Calças')}
         className={styles.categoryOption}
       >
         Calças
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={handleGetByCategory('Tênis')}
         className={styles.categoryOption}
       >
         Tênis
-      </button>
+      </Button>
     </nav>
   )
 }

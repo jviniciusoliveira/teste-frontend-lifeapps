@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 import { actionCart } from '@/store/product-cart'
 import type { Product } from '@/store/product-cart'
 import { useGetProductByIdQuery } from '@/services/products'
+import { Button } from '@/components/button'
 
 export function Product() {
   const { id } = useParams()
@@ -30,9 +31,7 @@ export function Product() {
         <span className={styles.productPrice}>R$ {product.price},00</span>
 
         <div className={styles.productActions}>
-          <button onClick={handleAddToCart} className={styles.productActionAdd}>
-            Adicionar à sacola
-          </button>
+          <Button onClick={handleAddToCart}>Adicionar à sacola</Button>
         </div>
       </div>
     </div>

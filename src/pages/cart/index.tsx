@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styles from './styles.module.css'
 
 import { actionCart, selectCart } from '@/store/product-cart'
+import { Button } from '@/components/button'
 
 export function Cart() {
   const dispatch = useDispatch()
@@ -53,12 +54,12 @@ export function Cart() {
                     )
                   )}
                 </select>
-                <button
-                  className={styles.cartItemActionDelete}
+                <Button
+                  variant="text"
                   onClick={() => handleDeleteProduct(product.id)}
                 >
                   Excluir
-                </button>
+                </Button>
               </div>
 
               <div className={styles.cartItemPrice}>R$ {product.amount},00</div>
@@ -75,7 +76,7 @@ export function Cart() {
             <p>Total: R$ 900,00</p>
           </div>
           <div className={styles.cartSummaryActions}>
-            <button>Finalizar a compra</button>
+            <Button>Finalizar a compra</Button>
           </div>
         </div>
       </div>

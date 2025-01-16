@@ -1,5 +1,7 @@
 import styles from './styles.module.css'
 
+import { Button } from '@/components/button'
+
 type PaginationProps = {
   currentPage: number
   totalPages: number
@@ -15,29 +17,32 @@ export function Pagination({
 
   return (
     <div className={styles.paginationContainer}>
-      <button
-        className={styles.paginationButton}
+      <Button
+        variant="rounded"
         onClick={() => onPageChange(1)}
         disabled={currentPage === 1}
+        title="Primeira página"
       >
         &lt;&lt;
-      </button>
+      </Button>
       {pageNumbers.map((pageNumber) => (
-        <button
-          className={styles.paginationButton}
+        <Button
+          variant="rounded"
           onClick={() => onPageChange(pageNumber)}
           data-active={pageNumber === currentPage}
+          title={`Página ${pageNumber}`}
         >
           {pageNumber}
-        </button>
+        </Button>
       ))}
-      <button
-        className={styles.paginationButton}
+      <Button
+        variant="rounded"
         onClick={() => onPageChange(totalPages)}
         disabled={currentPage === totalPages}
+        title="Última página"
       >
         &gt;&gt;
-      </button>
+      </Button>
     </div>
   )
 }

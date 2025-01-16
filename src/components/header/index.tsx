@@ -8,6 +8,7 @@ import FavoriteIcon from '@/assets/icons/favorite.svg'
 import SearchIcon from '@/assets/icons/search.svg'
 import UserIcon from '@/assets/icons/user.svg'
 import { useProductsSearch } from '@/hooks/useProductsSearch'
+import { Button } from '@/components/button'
 
 export function Header() {
   const { searchByName } = useProductsSearch()
@@ -26,7 +27,7 @@ export function Header() {
 
   return (
     <header className={styles.container}>
-      <Link to="/" className={styles.brandContainer} title="Home">
+      <Link to="/" className={styles.brandContainer} title="Tela inicial">
         <BrandIcon className={styles.brand} />
         <h1 className={styles.title}>E-Commerce</h1>
       </Link>
@@ -36,20 +37,24 @@ export function Header() {
         className={styles.searchInput}
       >
         <input type="text" name="input-search" placeholder="Buscar produtos" />
-        <button type="submit" className={styles.searchSubmit}>
+        <Button
+          variant="icon"
+          type="submit"
+          title="Pesquisar pelo nome do produto"
+        >
           <SearchIcon />
-        </button>
+        </Button>
       </form>
       <div className={styles.actions}>
-        <Link to="/cart">
+        <Button variant="icon" to="/cart" title="Sacola de compras">
           <CartIcon />
-        </Link>
-        <button>
+        </Button>
+        <Button variant="icon" title="Produtos favoritos">
           <FavoriteIcon />
-        </button>
-        <button>
+        </Button>
+        <Button variant="icon" title="Menu do usuário">
           <UserIcon />
-        </button>
+        </Button>
       </div>
     </header>
   )

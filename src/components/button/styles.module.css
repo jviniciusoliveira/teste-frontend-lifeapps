@@ -1,0 +1,53 @@
+.buttonIcon {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.buttonIcon svg {
+  width: 28px;
+  height: 28px;
+  color: #008ECC;
+}
+
+.buttonRounded {
+  border: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #F4F4F6;
+  font-weight: 600;
+  transition: background-color .2s;
+}
+
+.buttonRounded:hover:not(:disabled),
+.buttonRounded[data-active=true] {
+  background-color: #D1D4DB;
+}
+
+.buttonConteined {
+  border: 0;
+  width: 100%;
+  background-color: #59c00b;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  border-radius: 4px;
+  transition: background-color .2s;
+  cursor: pointer;
+}
+
+.buttonConteined:hover {
+  background-color: #479908;
+}
+
+.buttonText {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+}

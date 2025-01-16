@@ -10,12 +10,6 @@
   background-color: #FFF;
 }
 
-.container svg {
-  width: 28px;
-  height: 28px;
-  color: #008ECC;
-}
-
 .brandContainer {
   text-decoration: none;
   display: flex;
@@ -56,18 +50,5 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-.actions button {
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.searchSubmit {
-  background: none;
-  border: 0;
-  padding: 6px;
-  cursor: pointer;
+  gap: 16px;
 }
