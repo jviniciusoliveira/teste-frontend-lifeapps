@@ -12,25 +12,31 @@ export function Products() {
       <div className={styles.container}>
         {products.map((product) => (
           <Link to={`/product/${product.id}`}>
-            <div>
-              <span className={styles.productDiscount}>
-                {product.discount_percentage}
-              </span>
-              <img className={styles.productImage} src={product.image} />
+            <div className={styles.productImageContainer}>
+              {Boolean(product.discount_percentage) && (
+                <span className={styles.productDiscount}>
+                  -{product.discount_percentage}%
+                </span>
+              )}
+              <img
+                className={styles.productImage}
+                src={product.image}
+                alt={product.description}
+              />
             </div>
             <h3 className={styles.productName}>{product.name}</h3>
             <h4 className={styles.productDescription}>{product.description}</h4>
-            <div>
-              <strong
-                className={`${styles.productPrice} ${product.promotional_price ? styles.productWithPromotionalPrice : ''}`}
-              >
-                R$ {product.price},00
-              </strong>
+            <div className={styles.productPriceContainer}>
               {Boolean(product.promotional_price) && (
                 <strong className={styles.productPrice}>
                   R$ {product.promotional_price},00
                 </strong>
               )}
+              <strong
+                className={`${styles.productPrice} ${product.promotional_price ? styles.productWithPromotionalPrice : ''}`}
+              >
+                R$ {product.price},00
+              </strong>
             </div>
           </Link>
         ))}
