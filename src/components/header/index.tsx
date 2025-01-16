@@ -1,5 +1,5 @@
+import { useRef } from 'react'
 import { Link } from 'react-router'
-
 import styles from './styles.module.css'
 
 import CartIcon from '@/assets/icons/cart.svg'
@@ -7,11 +7,10 @@ import BrandIcon from '@/assets/icons/brand.svg'
 import FavoriteIcon from '@/assets/icons/favorite.svg'
 import SearchIcon from '@/assets/icons/search.svg'
 import UserIcon from '@/assets/icons/user.svg'
-import { useRef } from 'react'
-import { useProducts } from '@/hooks/useProducts'
+import { useProductsSearch } from '@/hooks/useProductsSearch'
 
 export function Header() {
-  const { getByName } = useProducts()
+  const { searchByName } = useProductsSearch()
   const formRef = useRef(null) as React.MutableRefObject<HTMLFormElement>
 
   async function handleSearch(event: React.FormEvent<HTMLFormElement>) {
@@ -21,8 +20,7 @@ export function Header() {
     const inputText = formData.get('input-search') as string
 
     if (!inputText?.trim()) return
-
-    getByName(inputText)
+    searchByName(inputText)
     formRef.current.reset()
   }
 

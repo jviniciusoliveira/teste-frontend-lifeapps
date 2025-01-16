@@ -2,10 +2,12 @@ import { Link } from 'react-router'
 import styles from './styles.module.css'
 
 import { Pagination } from '@/components/pagination'
-import { useProducts } from '@/hooks/useProducts'
+import { useProductsList } from '@/hooks/useProductsList'
+import { useProductsSearch } from '@/hooks/useProductsSearch'
 
 export function Products() {
-  const { products, pages, getByPage } = useProducts()
+  const { searchByPage } = useProductsSearch()
+  const { products, totalPages, currentPage } = useProductsList()
 
   return (
     <>
@@ -42,11 +44,11 @@ export function Products() {
         ))}
       </div>
 
-      {pages?.total > 1 && (
+      {totalPages > 1 && (
         <Pagination
-          currentPage={pages.current}
-          totalPages={pages.total}
-          onPageChange={(page) => getByPage(page)}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={searchByPage}
         />
       )}
     </>

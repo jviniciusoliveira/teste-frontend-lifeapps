@@ -1,19 +1,20 @@
 import styles from './styles.module.css'
-import { useProducts } from '@/hooks/useProducts'
+
+import { useProductsSearch } from '@/hooks/useProductsSearch'
 
 export function Categories() {
-  const { getByCategory, getByPage } = useProducts()
+  const { searchByCategory, searchByPage } = useProductsSearch()
 
   function handleGetByCategory(category: string) {
     return function () {
-      getByCategory(category)
+      searchByCategory(category)
     }
   }
 
   return (
     <nav className={styles.container}>
       <button
-        onClick={() => getByPage(1)}
+        onClick={() => searchByPage(1)}
         className={`${styles.categoryOption} ${styles.categoryOptionActive}`}
       >
         Todos os produtos
