@@ -1,0 +1,12 @@
+.layoutContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 12px;
+}
+
+.layoutContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

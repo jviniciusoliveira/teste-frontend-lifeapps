@@ -29,36 +29,43 @@ export function Header() {
   }
 
   return (
-    <header className={styles.container}>
+    <header className={styles.headerContainer}>
       <Link to="/" className={styles.brandContainer} title="Tela inicial">
-        <BrandIcon className={styles.brand} />
-        <h1 className={styles.title}>E-Commerce</h1>
+        <BrandIcon className={styles.headerBrand} />
+        <h1 className={styles.headerTitle}>E-Commerce</h1>
       </Link>
-      <form
-        ref={formRef}
-        onSubmit={(e) => handleSearch(e)}
-        className={styles.searchInput}
-      >
-        <input type="text" name="input-search" placeholder="Buscar produtos" />
-        <Button
-          variant="icon"
-          type="submit"
-          title="Pesquisar pelo nome do produto"
+      <div className={styles.headerActions}>
+        <form
+          ref={formRef}
+          onSubmit={(e) => handleSearch(e)}
+          className={styles.searchInput}
         >
-          <SearchIcon />
-        </Button>
-      </form>
-      <div className={styles.actions}>
-        <Button variant="icon" to="/cart" title="Sacola de compras">
-          <CartIcon />
-          <span className={styles.cartBadge}>{quantityInCart}</span>
-        </Button>
-        <Button variant="icon" title="Produtos favoritos">
-          <FavoriteIcon />
-        </Button>
-        <Button variant="icon" title="Menu do usuário">
-          <UserIcon />
-        </Button>
+          <input
+            type="text"
+            name="input-search"
+            placeholder="Buscar produtos"
+          />
+          <Button
+            variant="icon"
+            type="submit"
+            title="Pesquisar pelo nome do produto"
+          >
+            <SearchIcon />
+          </Button>
+        </form>
+
+        <nav>
+          <Button variant="icon" to="/cart" title="Sacola de compras">
+            <CartIcon />
+            <span className={styles.cartBadge}>{quantityInCart}</span>
+          </Button>
+          <Button variant="icon" title="Produtos favoritos">
+            <FavoriteIcon />
+          </Button>
+          <Button variant="icon" title="Menu do usuário">
+            <UserIcon />
+          </Button>
+        </nav>
       </div>
     </header>
   )

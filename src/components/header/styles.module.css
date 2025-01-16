@@ -1,13 +1,11 @@
-.container {
-  width: 100%;
-  max-width: 1400px;
-  height: 90px;
+.headerContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 16px;
+  padding: 20px 16px;
   border-bottom: 1px solid #EDEDED;
   background-color: #FFF;
+  gap: 16px;
 }
 
 .brandContainer {
@@ -17,24 +15,29 @@
   gap: 8px;
 }
 
-.container svg.brand {
+.headerContainer svg.headerBrand {
   width: 48px;
   height: 48px;
   color: #008ECC;
 }
 
-.title {
+.headerTitle {
+  font-size: 28px;
+  font-weight: 700;
   color: #008ECC;
 }
 
 .searchInput {
-  width: 500px;
+  flex: 1;
+  max-width: 500px;
+  min-width: 300px;
   height: 48px;
   display: flex;
   align-items: center;
   background-color: #F3F9FB;
   border: 0;
   border-radius: 10px;
+  margin: 0 16px;
   padding-left: 16px;
   padding-right: 10px;
 }
@@ -47,7 +50,15 @@
   padding: 6px;
 }
 
-.actions {
+.headerActions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 16px;
+}
+
+.headerActions nav {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -67,4 +78,14 @@
   font-size: 12px;
   font-weight: 600;
   color: #fff;
+}
+
+@media screen and (max-width: 890px) {
+  .headerContainer {
+    flex-direction: column;
+  }
+
+  .headerActions {
+    flex-direction: column-reverse;
+  }
 }

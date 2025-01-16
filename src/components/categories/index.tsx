@@ -13,7 +13,7 @@ export function Categories() {
   }
 
   return (
-    <nav className={styles.container}>
+    <nav className={styles.categoriesContainer}>
       <Button
         onClick={() => searchByPage(1)}
         className={`${styles.categoryOption} ${styles.categoryOptionActive}`}
