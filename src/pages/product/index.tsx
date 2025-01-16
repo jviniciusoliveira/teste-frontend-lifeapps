@@ -1,26 +1,17 @@
-import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { useDispatch } from 'react-redux'
 import styles from './styles.module.css'
 
-import { httpGet } from '@/services'
 import { actionCart } from '@/store/cart'
 import { type Product } from '@/store/cart'
+import { useGetProductByIdQuery } from '@/services/products'
 
 export function Product() {
   const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [product, setProduct] = useState<Product>()
-
-  useEffect(() => {
-    async function loadProduct() {
-      const response = await httpGet({ endpoint: `products/${id}` })
-      setProduct(response)
-    }
-    loadProduct()
-  }, [])
+  const { data: product } = useGetProductByIdQuery(id)
 
   function handleAddToCart() {
     dispatch(actionCart.add(product))

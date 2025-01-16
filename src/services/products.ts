@@ -48,7 +48,10 @@ export const productApi = createApi({
       query: (params) => ({ url: 'products', params }),
       transformResponse: transformGetProductsResponse,
     }),
+    getProductById: build.query<Product, string>({
+      query: (productId) => ({ url: `products/${productId}` }),
+    }),
   }),
 })
 
-export const { useGetProductsQuery } = productApi
+export const { useGetProductsQuery, useGetProductByIdQuery } = productApi
