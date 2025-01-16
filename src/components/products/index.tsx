@@ -1,9 +1,9 @@
-import { Link } from 'react-router'
 import styles from './styles.module.css'
 
 import { Pagination } from '@/components/pagination'
 import { useProductsList } from '@/hooks/useProductsList'
 import { useProductsSearch } from '@/hooks/useProductsSearch'
+import { Card } from '@/components/card'
 
 export function Products() {
   const { searchByPage } = useProductsSearch()
@@ -13,34 +13,34 @@ export function Products() {
     <>
       <div className={styles.container}>
         {products.map((product) => (
-          <Link to={`/product/${product.id}`}>
-            <div className={styles.productImageContainer}>
+          <Card to={`/product/${product.id}`}>
+            <Card.Image>
               {Boolean(product.discount_percentage) && (
                 <span className={styles.productDiscount}>
                   -{product.discount_percentage}%
                 </span>
               )}
-              <img
-                className={styles.productImage}
-                src={product.image}
-                alt={product.description}
-              />
-            </div>
-            <h3 className={styles.productName}>{product.name}</h3>
-            <h4 className={styles.productDescription}>{product.description}</h4>
-            <div className={styles.productPriceContainer}>
-              {Boolean(product.promotional_price) && (
-                <strong className={styles.productPrice}>
-                  R$ {product.promotional_price},00
+              <img src={product.image} alt={product.description} />
+            </Card.Image>
+            <Card.Content>
+              <h3 className={styles.productName}>{product.name}</h3>
+              <h4 className={styles.productDescription}>
+                {product.description}
+              </h4>
+              <div className={styles.productPriceContainer}>
+                {Boolean(product.promotional_price) && (
+                  <strong className={styles.productPrice}>
+                    R$ {product.promotional_price},00
+                  </strong>
+                )}
+                <strong
+                  className={`${styles.productPrice} ${product.promotional_price ? styles.productWithPromotionalPrice : ''}`}
+                >
+                  R$ {product.price},00
                 </strong>
-              )}
-              <strong
-                className={`${styles.productPrice} ${product.promotional_price ? styles.productWithPromotionalPrice : ''}`}
-              >
-                R$ {product.price},00
-              </strong>
-            </div>
-          </Link>
+              </div>
+            </Card.Content>
+          </Card>
         ))}
       </div>
 
