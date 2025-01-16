@@ -1,4 +1,5 @@
 .buttonIcon {
+  position: relative;
   border: 0;
   background: none;
   cursor: pointer;
@@ -12,6 +13,7 @@
 }
 
 .buttonRounded {
+  position: relative;
   border: 0;
   width: 36px;
   height: 36px;
@@ -28,6 +30,7 @@
 }
 
 .buttonConteined {
+  position: relative;
   border: 0;
   width: 100%;
   background-color: #59c00b;
@@ -45,6 +48,7 @@
 }
 
 .buttonText {
+  position: relative;
   background: none;
   border: 0;
   cursor: pointer;

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { Link } from 'react-router'
+import { useSelector } from 'react-redux'
 import styles from './styles.module.css'
 
 import CartIcon from '@/assets/icons/cart.svg'
@@ -9,8 +10,10 @@ import SearchIcon from '@/assets/icons/search.svg'
 import UserIcon from '@/assets/icons/user.svg'
 import { useProductsSearch } from '@/hooks/useProductsSearch'
 import { Button } from '@/components/ui/button'
+import { selectQuantityInCart } from '@/store'
 
 export function Header() {
+  const quantityInCart = useSelector(selectQuantityInCart)
   const { searchByName } = useProductsSearch()
   const formRef = useRef(null) as React.MutableRefObject<HTMLFormElement>
 
@@ -48,6 +51,7 @@ export function Header() {
       <div className={styles.actions}>
         <Button variant="icon" to="/cart" title="Sacola de compras">
           <CartIcon />
+          <span className={styles.cartBadge}>{quantityInCart}</span>
         </Button>
         <Button variant="icon" title="Produtos favoritos">
           <FavoriteIcon />
