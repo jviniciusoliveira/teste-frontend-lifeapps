@@ -15,6 +15,7 @@ export function Home() {
       <Categories />
 
       <div className={styles.productListContainer}>
+        {isLoading && 'Aguarde, carregando produtos...'}
         {!products.length && !isLoading && 'Nenhum produto encontrado.'}
         {products.map((product) => (
           <CardProduct key={product.id} product={product} />
