@@ -2,7 +2,7 @@
 
 context('Cart - Carrinho de produtos', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
   })
 
   it('Deve exibir 1 produto no carrinho', () => {

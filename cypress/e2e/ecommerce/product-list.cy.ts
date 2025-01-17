@@ -2,7 +2,7 @@
 
 context('Home - Lista de produtos', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
   })
 
   it('Deve exibir 10 cards de produto ao carregar a página', () => {

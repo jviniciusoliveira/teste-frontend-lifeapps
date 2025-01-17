@@ -37,7 +37,7 @@
 // }
 
 Cypress.Commands.add('addProductToCart', () => {
-  cy.visit('http://localhost:3000')
+  cy.visit('/')
   cy.intercept('/products/**').as('getProducts')
   cy.wait('@getProducts')
   cy.get('[data-testid="card-product"]').first().click()
