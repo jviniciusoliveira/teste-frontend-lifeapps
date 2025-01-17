@@ -12,10 +12,11 @@ export function QuantityField({
   return (
     <select
       name="productQuantity"
+      value={value}
       onChange={(event) => onChange(Number(event.target.value))}
     >
       {Array.from({ length: maxQuantity }, (_, i) => i + 1).map((quantity) => (
-        <option value={quantity} selected={quantity === value}>
+        <option key={quantity} value={quantity}>
           {quantity}
         </option>
       ))}

@@ -16,7 +16,7 @@ export function Categories() {
   }
 
   return (
-    <nav className={styles.categoriesContainer}>
+    <nav className={styles.categoriesContainer} data-testid="categories">
       <Button
         to="/"
         className={styles.categoryOption}
@@ -27,6 +27,7 @@ export function Categories() {
       </Button>
       {categories.map((category) => (
         <Button
+          key={category}
           onClick={handleGetByCategory(category)}
           className={styles.categoryOption}
           disabled={category === categoryParam}

@@ -9,7 +9,7 @@ type CardProductProps = {
 
 export function CardProduct({ product }: CardProductProps) {
   return (
-    <Card to={`/product/${product.id}`}>
+    <Card to={`/product/${product.id}`} data-testid="card-product">
       <Card.Image>
         {Boolean(product.discount_percentage) && (
           <span className={styles.productDiscount}>

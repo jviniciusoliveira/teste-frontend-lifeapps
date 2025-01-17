@@ -25,7 +25,8 @@ export function CartSummary({
             Valor do frete: <span>Grátis</span>
           </p>
           <p>
-            Valor total: <span>R$ {totalPrice},00</span>
+            Valor total:{' '}
+            <span data-testid="total-price">R$ {totalPrice},00</span>
           </p>
         </div>
         <div className={styles.cartSummaryActionsContainer}>

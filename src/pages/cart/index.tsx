@@ -39,7 +39,7 @@ export function Cart() {
   return (
     <div className={styles.cartContainer}>
       <h3>Carrinho</h3>
-      <ul>
+      <ul data-testid="cart-product-list">
         {products.map((product) => (
           <ProductRow key={product.id}>
             <ProductInfo product={product} />

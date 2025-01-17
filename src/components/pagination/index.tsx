@@ -27,6 +27,7 @@ export function Pagination({
       </Button>
       {pageNumbers.map((pageNumber) => (
         <Button
+          key={pageNumber}
           variant="rounded"
           onClick={() => onPageChange(pageNumber)}
           data-active={pageNumber === currentPage}
