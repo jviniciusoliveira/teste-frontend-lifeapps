@@ -10,5 +10,5 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat['jsx-runtime'],
-  { ignores: ['**/*.config.js'] },
+  { ignores: ['**/*.config.js', 'cypress/*'] },
 ]
