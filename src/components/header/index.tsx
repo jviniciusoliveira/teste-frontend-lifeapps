@@ -6,11 +6,11 @@ import styles from './styles.module.css'
 import CartIcon from '@/assets/icons/cart.svg'
 import BrandIcon from '@/assets/icons/brand.svg'
 import FavoriteIcon from '@/assets/icons/favorite.svg'
-import SearchIcon from '@/assets/icons/search.svg'
 import UserIcon from '@/assets/icons/user.svg'
 import { useProductsSearch } from '@/hooks/use-products-search'
 import { Button } from '@/components/ui/button'
 import { selectQuantityInCart } from '@/store'
+import { SearchField } from './search-field'
 
 export function Header() {
   const quantityInCart = useSelector(selectQuantityInCart)
@@ -35,25 +35,7 @@ export function Header() {
         <h1 className={styles.headerTitle}>E-Commerce</h1>
       </Link>
       <div className={styles.headerActions}>
-        <form
-          ref={formRef}
-          onSubmit={(e) => handleSearch(e)}
-          className={styles.searchInput}
-        >
-          <input
-            type="text"
-            name="input-search"
-            placeholder="Buscar produtos"
-          />
-          <Button
-            variant="icon"
-            type="submit"
-            title="Pesquisar pelo nome do produto"
-          >
-            <SearchIcon />
-          </Button>
-        </form>
-
+        <SearchField ref={formRef} onSearch={handleSearch} />
         <nav>
           <Button variant="icon" to="/cart" title="Sacola de compras">
             <CartIcon />
