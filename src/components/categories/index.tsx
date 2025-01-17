@@ -6,7 +6,7 @@ import { useProductsSearch } from '@/hooks/useProductsSearch'
 const categories = ['Camisetas', 'Calças', 'Tênis']
 
 export function Categories() {
-  const { searchByCategory, searchByPage, getSearchParam } = useProductsSearch()
+  const { searchByCategory, getSearchParam } = useProductsSearch()
   const categoryParam = getSearchParam('category')
 
   function handleGetByCategory(category: string) {
@@ -18,7 +18,7 @@ export function Categories() {
   return (
     <nav className={styles.categoriesContainer}>
       <Button
-        onClick={() => searchByPage(1)}
+        to="/"
         className={styles.categoryOption}
         disabled={!categoryParam}
         data-active={!categoryParam}
