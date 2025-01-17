@@ -32,12 +32,13 @@ export function useProductsList() {
     }
   }, [_page, name, category])
 
-  const { data: { products = [], totalPages } = {} } =
+  const { data: { products = [], totalPages } = {}, isLoading } =
     useGetProductsQuery(query)
 
   return {
     products,
     totalPages,
+    isLoading,
     currentPage: _page ? Number(_page) : 1,
   }
 }

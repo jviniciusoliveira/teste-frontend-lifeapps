@@ -8,13 +8,14 @@ import { useProductsSearch } from '@/hooks/use-products-search'
 
 export function Home() {
   const { searchByPage } = useProductsSearch()
-  const { products, totalPages, currentPage } = useProductsList()
+  const { products, totalPages, currentPage, isLoading } = useProductsList()
 
   return (
     <>
       <Categories />
 
       <div className={styles.productListContainer}>
+        {!products.length && !isLoading && 'Nenhum produto encontrado.'}
         {products.map((product) => (
           <CardProduct key={product.id} product={product} />
         ))}
