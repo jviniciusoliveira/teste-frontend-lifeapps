@@ -32,15 +32,15 @@ function transformGetProductsResponse(
 
 export const productApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3002/products/',
+    baseUrl: process.env.API_URL,
   }),
   endpoints: (build) => ({
     getProducts: build.query({
-      query: (searchParams) => ({ url: `?${searchParams}` }),
+      query: (searchParams) => ({ url: `products/?${searchParams}` }),
       transformResponse: transformGetProductsResponse,
     }),
     getProductById: build.query<Product, string>({
-      query: (productId) => ({ url: `${productId}` }),
+      query: (productId) => ({ url: `products/${productId}` }),
     }),
   }),
 })
