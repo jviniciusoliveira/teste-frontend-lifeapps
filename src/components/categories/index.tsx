@@ -6,8 +6,8 @@ import { useProductsSearch } from '@/hooks/use-products-search'
 const categories = ['Camisetas', 'Calças', 'Tênis']
 
 export function Categories() {
-  const { searchByCategory, getSearchParam } = useProductsSearch()
-  const categoryParam = getSearchParam('category')
+  const { searchByCategory, currentParams } = useProductsSearch()
+  const categoryParam = currentParams.get('category')
 
   function handleGetByCategory(category: string) {
     return function () {
@@ -20,8 +20,8 @@ export function Categories() {
       <Button
         to="/"
         className={styles.categoryOption}
-        disabled={!categoryParam}
-        data-active={!categoryParam}
+        disabled={!categoryParam && !currentParams.get('name')}
+        data-active={!categoryParam && !currentParams.get('name')}
       >
         Todos os produtos
       </Button>
