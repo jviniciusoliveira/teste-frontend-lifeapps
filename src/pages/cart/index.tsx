@@ -13,6 +13,7 @@ import { QuantityField } from './components/quantity-field'
 import { CartSummary } from './components/cart-summary'
 import { ProductRow } from './components/product-row'
 import { ProductInfo } from './components/product-info'
+import { CartEmpty } from './components/cart-empty'
 
 export function Cart() {
   const dispatch = useDispatch()
@@ -33,8 +34,9 @@ export function Cart() {
     dispatch(actionCart.clear())
   }
 
-  // TODO: Adicionar com componente informando "Nenhum produto na sacola"
-  if (!products.length) return null
+  if (!products.length) {
+    return <CartEmpty />
+  }
 
   return (
     <div className={styles.cartContainer}>
