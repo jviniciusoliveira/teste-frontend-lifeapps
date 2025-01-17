@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 
 import { Button } from '@/components/ui/button'
-import { useProductsSearch } from '@/hooks/useProductsSearch'
+import { useProductsSearch } from '@/hooks/use-products-search'
 
 const categories = ['Camisetas', 'Calças', 'Tênis']
 

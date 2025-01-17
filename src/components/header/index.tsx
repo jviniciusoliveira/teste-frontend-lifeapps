@@ -8,7 +8,7 @@ import BrandIcon from '@/assets/icons/brand.svg'
 import FavoriteIcon from '@/assets/icons/favorite.svg'
 import SearchIcon from '@/assets/icons/search.svg'
 import UserIcon from '@/assets/icons/user.svg'
-import { useProductsSearch } from '@/hooks/useProductsSearch'
+import { useProductsSearch } from '@/hooks/use-products-search'
 import { Button } from '@/components/ui/button'
 import { selectQuantityInCart } from '@/store'
 

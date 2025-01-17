@@ -3,8 +3,8 @@ import styles from './styles.module.css'
 import { CardProduct } from '@/components/card-product'
 import { Categories } from '@/components/categories'
 import { Pagination } from '@/components/pagination'
-import { useProductsList } from '@/hooks/useProductsList'
-import { useProductsSearch } from '@/hooks/useProductsSearch'
+import { useProductsList } from '@/hooks/use-products-list'
+import { useProductsSearch } from '@/hooks/use-products-search'
 
 export function Home() {
   const { searchByPage } = useProductsSearch()
