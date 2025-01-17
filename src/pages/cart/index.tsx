@@ -6,7 +6,7 @@ import {
   selectCart,
   selectQuantityInCart,
   selectTotalPrice,
-} from '@/store/product-cart'
+} from '@/store/cart'
 import { Button } from '@/components/ui/button'
 
 import { QuantityField } from './components/quantity-field'
